@@ -16,7 +16,13 @@ public class Date {
     public int getyear(){
         return year;
     }
-    public int compareTo(Date d2) {
+    public int compareTo(Date d1) {
         return 0;
+    }
+    public boolean isBetween(Date startDate, Date endDate) {
+        return false;
+    }
+    public String toString() {
+        return day + "-" + month + "-" + year;
     }
 }
