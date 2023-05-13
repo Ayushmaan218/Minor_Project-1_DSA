@@ -1,15 +1,42 @@
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
-        Employee[] e = new Employee[500];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of employees: ");
+        int n = sc.nextInt();String[] date = new String[3];
+        Employee[] e = new Employee[n];
         for (int i = 0; i < e.length; i++){
-            e[i] = new Employee("Employee " + (i+1), i+1, 100000 + (i*100), new Date(2022, 1, 1), "Developer", "+91-1234567890", new Address("123 Main St", "City", "State", "Country", 12345));
+            System.out.println("Enter the name of employee " + (i+1) + ": ");
+            String name = sc.next();
+            System.out.println("Enter the ID of employee " + (i+1) + ": ");
+            int id = sc.nextInt();
+            System.out.println("Enter the salary of employee " + (i+1) + ": ");
+            double salary = sc.nextDouble();
+            System.out.println("Enter the hire date of employee " + (i+1) + " (yyyy-mm-dd): ");
+            date[0] = sc.next();
+            date[1] = sc.next();
+            date[2] = sc.next();
+            Date hireDate = new Date(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
+            System.out.println("Enter the job position of employee " + (i+1) + ": ");
+            String jobPosition = sc.next();
+            System.out.println("Enter the contact number of employee " + (i+1) + ": ");
+            String contactNumber = sc.next();
+            System.out.println("Enter the address of employee " + (i+1) + ": ");
+            String street = sc.next();
+            String state = sc.next();
+            String country = sc.next();
+            int zipCode = sc.nextInt();
+            Address address = new Address(street, state, country, zipCode);
+            e[i] = new Employee(name, id, salary, hireDate, jobPosition, contactNumber, address);
         }
         arrangeEmployeeBySalary(e);
-        getEmployeesByJobPosition(e, "Manager");
-        getEmployeesByHireDate(e, new Date(2022, 4, 1), new Date(2023, 3, 31));
+        getEmployeesByJobPosition(e, "HR");
+        getEmployeesByHireDate(e, new Date(2023, 2, 1), new Date(2023, 3, 31));
         int foreignEmployees = foreignEmployeeCount(e);
         System.out.println("Number of foreign employees: " + foreignEmployees);
         getEmployeesBySalary(e, 150000, 300000);
+        sc.close();
     }
     public static void arrangeEmployeeBySalary(Employee e[]){
         for(int i=0;i<e.length;i++){
