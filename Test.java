@@ -13,7 +13,7 @@ public class Test {
             int id = sc.nextInt();
             System.out.println("Enter the salary of employee " + (i+1) + ": ");
             double salary = sc.nextDouble();
-            System.out.println("Enter the hire date of employee " + (i+1) + " (yyyy-mm-dd): ");
+            System.out.println("Enter the hire date of employee " + (i+1) + " (dd-mm-yyyy): ");
             date[0] = sc.next();
             date[1] = sc.next();
             date[2] = sc.next();
@@ -32,7 +32,7 @@ public class Test {
         }
         arrangeEmployeeBySalary(e);
         getEmployeesByJobPosition(e, "HR");
-        getEmployeesByHireDate(e, new Date(2023, 2, 1), new Date(2023, 3, 31));
+        getEmployeesByHireDate(e, new Date(1, 2, 2023), new Date(31, 3, 31));
         int foreignEmployees = foreignEmployeeCount(e);
         System.out.println("Number of foreign employees: " + foreignEmployees);
         getEmployeesBySalary(e, 150000, 300000);
